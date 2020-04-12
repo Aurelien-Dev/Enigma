@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <script src="./scripts/Jquery/jquery-3.4.1.min.js"></script>
+    <script src="./scripts/JqueryUI/jquery-ui.min.js"></script>
+    <script src="./scripts/Bootstrap/bootstrap.min.js"></script>
+    <script src="./scripts/utilitaires.js"></script>
+
+    <link rel="stylesheet" href="./scripts/JqueryUI/jquery-ui.min.css">
+    <link rel="stylesheet" href="./scripts/Bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./scripts/Bootstrap/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./styles/scouts.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <title>Énigmes Scouts et Guides - Domont St Exupery</title>
+</head>
+
+<body class="vsc-initialized">
+
+    <div class="bk-centre">
+        <div class="container-xl">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-12">
+                    <div class="text-center">
+                        <img src="./images/logo-pionnier.png" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-xl">
+        <div id="centre" class="row justify-content-center">
+            <div class="col-xl-8 ">
+                <div class="text-center reponse">
+                    <p>Par miracle nous avons pu arriver avant l'acheteur, il faut maintenant retrouver la toile avant qu'ils arrivent !</p>
+                    <p>Trouve la toile et clique sur l'image quand tu l'auras trouvé</p>
+                    <p>
+                        <img src="https://delyha.github.io/dd.github.io/images/code-q11.png" usemap="#image-map" width="700" />
+                        <map name="image-map">
+                            <area target="" alt="" title="" href="./questions/q12-police" coords="371,420,359,459,368,460,379,421" shape="poly">
+                        </map>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+    </footer>
+
+    <script>
+        $(function() {
+            window.Scoute.LogOuverture('Étape 11');
+            window.Scoute.ModifierUrls();
+
+            var $element = $('area');
+            var url = $element.attr('href')
+
+            $element.attr('href', url + '?Nom=' + window.Scoute.GetNom());
+        });
+    </script>
+</body>
+
+</html>

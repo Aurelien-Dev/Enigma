@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <script src="./scripts/Jquery/jquery-3.4.1.min.js"></script>
+    <script src="./scripts/JqueryUI/jquery-ui.min.js"></script>
+    <script src="./scripts/Bootstrap/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js" integrity="sha256-G7A4JrJjJlFqP0yamznwPjAApIKPkadeHfyIwiaa9e0=" crossorigin="anonymous"></script>
+
+    <!-- DATATABLE -->
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/rg-1.1.1/datatables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/rg-1.1.1/datatables.min.css" />
+
+
+    <link rel="stylesheet" href="./scripts/JqueryUI/jquery-ui.min.css">
+    <link rel="stylesheet" href="./scripts/Bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./scripts/Bootstrap/bootstrap-grid.min.css">
+
+    <link rel="stylesheet" href="./styles/scouts.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <title>Énigmes Scouts et Guides - Domont St Exupery</title>
+</head>
+
+<body class="vsc-initialized">
+
+    <div class="bk-centre">
+        <div class="container-xl">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-12">
+                    <div class="text-center">
+                        <img src="./images/logo-pionnier.png" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-xl">
+        <div id="centre" class="row justify-content-center">
+            <div class="col-xl-12 ">
+                <h4>Ouverture des questions</h4>
+                <table id="OuverturePage" class="table table-sm table-dark">
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+    </footer>
+
+    <script>
+        $(function() {
+            var groupColumn = 0;
+
+            $('#OuverturePage').DataTable({
+                dom: "<'row'<'col-sm-12 col-md-4'l><'col-sm-12 col-md-4'B><'col-sm-12 col-md-4'f>>" +
+                    "<'row'<'col-sm-12'tr>>" +
+                    "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+                lengthMenu: [
+                    [100, 300, -1],
+                    [100, 300, "Tout"]
+                ],
+                ajax: {
+                    url: window.Scoute.UrlBase + 'Information'
+                },
+                language: {
+                    url: "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+                },
+                columns: [{
+                    title: 'Nom du joueur',
+                    data: 'NomJoueur',
+                    visible: false
+                }, {
+                    title: 'Question',
+                    data: 'NomQuestion',
+                    render: function(data, type, row, meta) {
+                        return data + ' <span class="small badge badge-pill badge-light">Ouvert ' + row.NombreOuverture + 'x</span>';
+                    }
+                }, {
+                    title: 'Réponses',
+                    data: 'Reponses',
+                    render: function(data, type, row, meta) {
+                        var str = '';
+                        _.each(data, function(element, index) {
+                            str += ' <span class="badge badge-info">' + element.ReponseSaisie + '</span>';
+                        });
+                        return str;
+                    }
+                }, {
+                    title: "Nombre d'indices demandés",
+                    data: 'NombreIndiceDemande',
+                }],
+                order: [
+                    [0, "desc"],
+                    [1, "desc"]
+                ],
+                buttons: [{
+                    extend: 'collection',
+                    text: 'Export',
+                    buttons: [
+                        'excel'
+                    ]
+                }],
+                rowGroup: {
+                    className: 'entete-groupe',
+                    dataSrc: function(row) {
+                        if (row.NomJoueur == null) {
+                            return 'Personnes ayant ouvert le site';
+                        }
+
+                        return row.NomJoueur;
+                    },
+                    startRender: function(rows, group) {
+                        return group + ' <span class="badge badge-pill badge-success">' + rows.count() + ' étapes réalisés</span>';
+                    }
+                },
+            });
+        });
+    </script>
+</body>
+
+</html>

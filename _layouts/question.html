@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script src="../scripts/Jquery/jquery-3.4.1.min.js"></script>
+    <script src="../scripts/JqueryUI/jquery-ui.min.js"></script>
+    <script src="../scripts/Bootstrap/bootstrap.min.js"></script>
+    <script src="../scripts/utilitaires.js"></script>
+    <script src="../scripts/question.js"></script>
+
+    <link rel="stylesheet" href="../scripts/JqueryUI/jquery-ui.min.css">
+    <link rel="stylesheet" href="../scripts/Bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../scripts/Bootstrap/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../styles/scouts.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+
+    <title>Énigmes Scouts et Guides - Domont St Exupery / {{ page.titre }}</title>
+</head>
+
+<body class="vsc-initialized">
+
+    <div class="bk-centre">
+        <div class="container-xl">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-12">
+                    <div class="text-center">
+                        <img src="../images/logo-pionnier.png" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-xl">
+        <div id="centre" class="row justify-content-center">
+            <div class="col-xl-8 ">
+                <div class="reponse">
+                    {{ content }}
+                    <h2>{{ page.question }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div id="centre" class="row justify-content-center">
+            <div class="col-xl-8 ">
+                <form id="formIndices">
+                    <div class="form-group">
+                        <label for="choixReponse">Saisir la réponse</label>
+                        <input type="text" class="form-control" id="choixReponse" placeholder="" autocomplete="off">
+                        <input type="hidden" value="{{ page.reponse }}" id="r">
+                        <small class="form-text text-muted"> </small>
+                    </div>
+                    <button type="submit" id="btnValider" class="btn btn-pionnier">Vérifier</button>
+                    <button type="button" id="btnDemandeIndice" class="btn btn-pionnier">Demander un indice</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="centre" class="row justify-content-center">
+            <div class="col-xl-8 ">
+                <div class="alert alert-success hidden" role="alert">
+                    <h4 class="alert-heading">Bonne réponse !</h4>
+                    <p>{{ page.messageReponse }}</p>
+                    {% if page.questionSuivante %}
+                    <p>Tu peux passer à la question suivante</p>
+                    <hr>
+                    <a href="/dd.github.io/questions/{{page.questionSuivante}}" id="questionSuivante" class="btn btn-pionnier link-info">Question suivante</a> {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div id="centre" class="row justify-content-center">
+            <div class="col-xl-8 ">
+                <ul class="indices">
+                    {% if page.indice1 %}
+                    <li class="hidden"><span class="indice badge badge-success">{{ page.indice1 }}</span></li>{% endif %} {% if page.indice2 %}
+                    <li class="hidden"><span class="indice badge badge-success">{{ page.indice2 }}</span></li>{% endif %} {% if page.indice3 %}
+                    <li class="hidden"><span class="indice badge badge-success">{{ page.indice3 }}</span></li>{% endif %} {% if page.indice4 %}
+                    <li class="hidden"><span class="indice badge badge-success">{{ page.indice4 }}</span></li>{% endif %} {% if page.indice5 %}
+                    <li class="hidden"><span class="indice badge badge-success">{{ page.indice5 }}</span></li>{% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>
