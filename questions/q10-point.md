@@ -22,5 +22,5 @@ wjgtsotzw
 qj xtrrjy jxy ywtu xzwajnqqj hjx ijwsnjwx yjrux, stzx sj utzatsx ufx lfwijw hj utnsy ij wia. atzx ijutxjwje q’tjzawj ifsx qj wjkzlj, atzx wjijxhjsiwje ifsx qf afqqjj jy stzx qj wjhzujwjwtsx. atzx wjhjawje atywj ufnjrjsy ufw anwjrjsy ièx vzj hj xjwf kfny. qj wjkzlj jxy à q’fqynyzij xznafsyj :
 
 <p>
-    <img src="https://delyha.github.io/dd.github.io/images/code-q10.jpg" class="link-info" width="100%" />
+    <img src="https://delyha.github.io/Enigma/images/code-q10.jpg" class="link-info" width="100%" />
 </p>

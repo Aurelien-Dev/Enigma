@@ -19,5 +19,5 @@ indice2: Ce lien pourra t’aider <a href="https://www.latoilescoute.net/les-cod
 ---
 
 <p>
-    <img src="https://delyha.github.io/dd.github.io/images/code-q6.jpg" class="link-info" width="100%" />
+    <img src="https://delyha.github.io/Enigma/images/code-q6.jpg" class="link-info" width="100%" />
 </p>
