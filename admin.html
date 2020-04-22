@@ -9,6 +9,7 @@
     <script src="./scripts/JqueryUI/jquery-ui.min.js"></script>
     <script src="./scripts/Bootstrap/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js" integrity="sha256-G7A4JrJjJlFqP0yamznwPjAApIKPkadeHfyIwiaa9e0=" crossorigin="anonymous"></script>
+    <script src="./scripts/utilitaires.js"></script>
 
     <!-- DATATABLE -->
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/rg-1.1.1/datatables.min.js"></script>
@@ -78,7 +79,14 @@
                     title: 'Question',
                     data: 'NomQuestion',
                     render: function(data, type, row, meta) {
-                        return data + ' <span class="small badge badge-pill badge-light">Ouvert ' + row.NombreOuverture + 'x</span>';
+                        return data;
+                    }
+                }, {
+                    title: '',
+                    data: 'Reponses',
+                    render: function(data, type, row, meta) {
+                        return '<span class="small badge badge-pill badge-secondary">Ouvert ' + row.NombreOuverture + 'x</span> ' +
+                            '<span class="small badge badge-pill badge-secondary">' + row.Reponses.length + ' réponses saisies</span>';
                     }
                 }, {
                     title: 'Réponses',

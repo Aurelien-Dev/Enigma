@@ -1,6 +1,6 @@
 if (window.Scoute == null || typeof(window.Scoute) != "object") { window.Scoute = []; }
 
-window.Scoute.UrlBase = 'https://functscout.azurewebsites.net/api/';
+window.Scoute.UrlBase = 'https://enigmatest.azurewebsites.net/api/';
 
 window.Scoute.Init = function() {
     var nomUrl = getUrlVars()['Nom'];

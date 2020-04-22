@@ -7,13 +7,14 @@ $(function() {
         e.preventDefault();
 
         var reponseSaisie = $("#choixReponse").val();
-        var reponse = $("#r").val();
+        var reponse = $("#r").val().toUpperCase();
+        var reponses = reponse.split(',');
 
         if (!$('.alert').is(':visible')) {
             window.Scoute.LogReponse(reponseSaisie);
         }
 
-        if (reponseSaisie.toUpperCase() === reponse.toUpperCase()) {
+        if (_.contains(reponses, reponseSaisie.toUpperCase())) {
             $('.alert').fadeIn(200);
             $('.alert')[0].scrollIntoView({ behavior: 'smooth', block: 'end' });
         } else {
